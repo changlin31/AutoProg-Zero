@@ -56,7 +56,7 @@ python sample_apz.py --image_size 256 --ckpt "path-to-checkpoint.pt"
 You can sample a large number of images and generate a .npz file containing a large number of samples, which can directly use [ADM's TensorFlow evaluation suite](https://github.com/openai/guided-diffusion/tree/main/evaluations) to calculate FID. For example, you can load `path-to-checkpoint.pt` and sample 5k images across N GPUs.
 
 ```bash
-torchrun --nnodes=1 --nproc_per_node=N sample_apz_ddp.py --image_size 256 --num_classes 200 --num_fid_samples 5000 --ckpt="path-to-checkpoint.pt"
+torchrun --nnodes=1 --nproc_per_node=N sample_apz_ddp.py --image_size 256 --num_classes 200 --num_fid_samples 5000 --ckpt "path-to-checkpoint.pt"
 ```
 
 You can also set `--stage=k` to specify the k th stage of SID embedding.
