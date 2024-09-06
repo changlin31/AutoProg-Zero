@@ -2,7 +2,7 @@
 
 [Efficiently training large vision models through advanced automated progressive learning]() is a continuation of previous work [Automated Progressive Learning for Efficient Training of Vision Transformers](https://arxiv.org/pdf/2203.14509).
 
-![post](.\sample_grid.png)
+![post](sample_grid.png)
 
 We use AutoProg-Zero for fine-tuning on Vision Transformers, Diffusion Transformers(DiTs) and Stable Diffusion Models. AutoProg-Zero shows excellent fine-tuning performance on different models and different datasets, significantly shortens the fine-tuning time, which outperforms other training methods on the class-conditional Oxford Flowers, CUB-Brid, ArtBench and Stanford Cars.
 
