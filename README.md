@@ -4,7 +4,7 @@
 
 ![post](./sample_grid.png)
 
-We use AutoProg-Zero for fine-tuning on Vision Transformers, Diffusion Transformers(DiTs) and Stable Diffusion Models. AutoProg-Zero shows excellent fine-tuning performance on different models and different datasets, significantly shortens the fine-tuning time, which outperforms other training methods on the class-conditional Oxford Flowers, CUB-Brid, ArtBench and Stanford Cars.
+We use AutoProg-Zero for fine-tuning on Vision Transformers(ViTs), Diffusion Transformers(DiTs) and Stable Diffusion(SD) Models. AutoProg-Zero shows excellent fine-tuning performance on different models and different datasets, significantly shortens the fine-tuning time, which outperforms other training methods on the class-conditional Oxford Flowers, CUB-Brid, ArtBench and Stanford Cars.
 
 
 
@@ -59,7 +59,7 @@ You can sample a large number of images and generate a .npz file containing a la
 torchrun --nnodes=1 --nproc_per_node=N sample_apz_ddp.py --image_size 256 --num_classes 200 --num_fid_samples 5000 --ckpt "path-to-checkpoint.pt"
 ```
 
-You can also set `--stage=k` to specify the k th stage of SID embedding.
+You can also set `--stage=k` to specify the SID embedding for the k-th stage.
 
 
 
