@@ -1,6 +1,6 @@
 # Efficient Training of Large Vision Models via Advanced Automated Progressive Learning
 
-[Efficiently training large vision models through advanced automated progressive learning](https://arxiv.org/abs/2410.00350) is a continuation of previous work [Automated Progressive Learning for Efficient Training of Vision Transformers](https://arxiv.org/pdf/2203.14509).
+[Efficiently training large vision models through advanced automated progressive learning](https://arxiv.org/abs/2410.00350) is a continuation of previous work [Automated Progressive Learning for Efficient Training of Vision Transformers](https://arxiv.org/pdf/2203.14509) [[code](https://github.com/changlin31/AutoProg)].
 
 ![post](./sample_grid.png)
 
@@ -68,5 +68,22 @@ You can also set `--stage=k` to specify the SID embedding for the k-th stage.
 If you use our code for your paper, please cite:
 
 ```
+@article{li2024efficient,
+  title={Efficient Training of Large Vision Models via Advanced Automated Progressive Learning},
+  author={Li, Changlin and Zhang, Jiawei and Lin, Sihao and Yang, Zongxin and Liang, Junwei and Liang, Xiaodan and Chang, Xiaojun},
+  journal={arXiv preprint arXiv:2410.00350},
+  year={2024}
+}
 
+@inproceedings{li2022autoprog,
+  author = {Li, Changlin and 
+            Zhuang, Bohan and 
+            Wang, Guangrun and
+            Liang, Xiaodan and
+            Chang, Xiaojun and
+            Yang, Yi},
+  title = {Automated Progressive Learning for Efficient Training of Vision Transformers},
+  booktitle = {CVPR},
+  year = 2022,
+}
 ```
