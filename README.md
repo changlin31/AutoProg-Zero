@@ -1,6 +1,6 @@
 # Efficient Training of Large Vision Models via Advanced Automated Progressive Learning
 
-[Efficiently training large vision models through advanced automated progressive learning]() is a continuation of previous work [Automated Progressive Learning for Efficient Training of Vision Transformers](https://arxiv.org/pdf/2203.14509).
+[Efficiently training large vision models through advanced automated progressive learning](https://arxiv.org/abs/2410.00350) is a continuation of previous work [Automated Progressive Learning for Efficient Training of Vision Transformers](https://arxiv.org/pdf/2203.14509).
 
 ![post](./sample_grid.png)
 
