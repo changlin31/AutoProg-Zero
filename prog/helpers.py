@@ -19,7 +19,8 @@ def set_model_config(model, current_l):
 
 
     for name, param in model.named_parameters():
-        param.requires_grad = any([kw in name for kw in train_dict[current_l]])
+        if 'blocks' in name:
+            param.requires_grad = any([kw in name for kw in train_dict[current_l]])
 
 def no_repeats(a: list):
     b = []

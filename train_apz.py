@@ -171,7 +171,7 @@ def main(args):
     # Note that parameter initialization is done within the DiT constructor
     ema = deepcopy(model).to(device)  # Create an EMA of the model for use after training
     requires_grad(ema, False)
-    model = DDP(model.to(device), device_ids=[rank], find_unused_parameters=True)
+    model = DDP(model.to(device), device_ids=[rank])
     diffusion = create_diffusion(timestep_respacing="")  # default: 1000 steps, linear noise schedule
     vae = AutoencoderKL.from_pretrained(f"stabilityai/sd-vae-ft-{args.vae}").to(device)
     logger.info(f"DiT Parameters: {sum(p.numel() for p in model.parameters()):,}")
@@ -291,8 +291,8 @@ def main(args):
 
 
             torch.cuda.empty_cache()
-            set_model_config(model, current_l)
-            # model = DDP(model, device_ids=[rank], find_unused_parameters=True)
+            set_model_config(model.module, current_l)
+            model = DDP(model.module, device_ids=[args.local_rank])
             logger.info(f"current layer: {current_l}")
 
             # Setup data:
@@ -554,7 +554,8 @@ def train_one_epoch_super(args,
         train_loss = 0.0
         for r in r_list:
             for l in l_list:
-                set_model_config(model, l)
+                set_model_config(model.module, l)
+                model = DDP(model.module, device_ids=[args.local_rank])
                 r_idx = r_list.index(r)
                 l_idx = l_list.index(l)
                 grad_dict = defaultdict(list)
@@ -657,22 +658,7 @@ def train_one_epoch_super(args,
     return search_metrics
 
 
-def sample_configs(l_list, r_list, mode='random'):
-    if mode == 'random':
-        config = {'min_layer_num': l_list[0], 'max_layer_num': l_list[-1], 'layer_num': random.choice(l_list),
-                  'input_size': random.choice(r_list)}
 
-    elif mode == 'smallest':
-        config = {'min_layer_num': l_list[0], 'max_layer_num': l_list[-1], 'layer_num': l_list[0],
-                  'input_size': r_list[0]}
-    elif mode == 'largest':
-        config = {'min_layer_num': l_list[0], 'max_layer_num': l_list[-1], 'layer_num': l_list[-1],
-                  'input_size': r_list[-1]}
-
-    else:
-        raise NotImplementedError
-
-    return config, l_list.index(config['layer_num']), r_list.index(config['input_size'])
 
 if __name__ == "__main__":
     # Default args here will train DiT-XL/2 with the hyperparameters we used in our paper (except training iters).
