@@ -11,10 +11,10 @@ from collections import defaultdict
 def set_model_config(model, current_l):
 
 
-    train_dict = {1: [f'blocks.{num}' for num in range(0,28,4)],
-                   2: [f'blocks.{num}' for num in range(0,28,4)] + [f'blocks.{num}' for num in range(1,28,4)],
-                   3: [f'blocks.{num}' for num in range(0,28,4)] + [f'blocks.{num}' for num in range(1,28,4)] + [f'blocks.{num}' for num in range(2,28,4)],
-                   4: [f'blocks.{num}' for num in range(0,28)],
+    train_dict = {1: [f'blocks.{num}.' for num in range(0,28,4)],
+                   2: [f'blocks.{num}.' for num in range(0,28,4)] + [f'blocks.{num}' for num in range(1,28,4)],
+                   3: [f'blocks.{num}.' for num in range(0,28,4)] + [f'blocks.{num}' for num in range(1,28,4)] + [f'blocks.{num}' for num in range(2,28,4)],
+                   4: [f'blocks.{num}.' for num in range(0,28)],
                    }
 
 
